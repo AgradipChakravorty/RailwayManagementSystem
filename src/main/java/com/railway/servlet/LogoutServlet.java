@@ -1,0 +1,16 @@
+package com.railway.servlet;
+
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.*;
+import jakarta.servlet.ServletException;
+import java.io.IOException;
+
+@WebServlet("/logout")
+public class LogoutServlet extends HttpServlet {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        HttpSession session = request.getSession(false);
+        if (session != null) session.invalidate();
+        response.sendRedirect("index.jsp");
+    }
+}

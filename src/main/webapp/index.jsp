@@ -1,47 +1,14 @@
-
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
+<%@ page contentType="text/html;charset=UTF-8" %>
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Railway Management System</title>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet"
-          href="${pageContext.request.contextPath}/css/common.css">
-</head>
-
+<head><title>Railway Management System</title><link rel="stylesheet" href="css/style.css"></head>
 <body>
-
-    <!-- Common Header -->
-    <jsp:include page="jsp/header.jsp" />
-
-    <!-- Main Homepage -->
-    <main class="hero">
-
-        <h1>Welcome to Railway Management System</h1>
-
-        <p>
-            Book your train tickets, explore trains and manage
-            your railway journeys with ease.
-        </p>
-
-        <div class="hero-buttons">
-            <a href="jsp/train/searchTrain.jsp" class="btn primary">
-                Search Trains
-            </a>
-
-            <a href="jsp/auth/login.jsp" class="btn secondary">
-                Login
-            </a>
-        </div>
-
-    </main>
-
-    <!-- Common Footer -->
-    <jsp:include page="jsp/footer.jsp" />
-
-</body>
-</html>
+<div class="hero">
+    <nav><b>Railway Management System</b><span><a href="login.jsp">Login</a> <a href="register.jsp">Register</a></span></nav>
+    <div class="hero-content">
+        <h1>Your journey starts here.</h1>
+        <p>Search trains, book tickets and manage your railway reservations.</p>
+        <a class="btn" href="register.jsp">Get Started</a>
+    </div>
+</div>
+</body></html>
