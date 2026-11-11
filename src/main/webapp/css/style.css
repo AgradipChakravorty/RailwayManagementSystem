@@ -1,0 +1,36 @@
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Arial, sans-serif; background: #f4f6f9; color: #263238; }
+a { color: #0759a5; text-decoration: none; margin-right: 14px; }
+a:hover { text-decoration: underline; }
+.hero { min-height: 100vh; color: white; background: linear-gradient(120deg,#12395b,#147d83); }
+nav { padding: 20px 6%; display: flex; justify-content: space-between; align-items: center; }
+nav a { color: inherit; }
+.hero-content { padding: 150px 10%; max-width: 750px; }
+.hero-content h1 { font-size: 48px; margin-bottom: 10px; }
+.hero-content p { font-size: 18px; line-height: 1.6; }
+.btn, button { display: inline-block; border: 0; border-radius: 5px; padding: 11px 18px;
+    background: #087e8b; color: white; cursor: pointer; font-size: 14px; }
+.btn { margin-top: 15px; }
+button:hover, .btn:hover { background: #075d68; text-decoration: none; }
+.form-box { width: 390px; max-width: 92%; margin: 55px auto; background: white; padding: 28px;
+    border-radius: 9px; box-shadow: 0 3px 15px #0001; }
+label { display: block; margin: 13px 0 6px; font-size: 14px; }
+input { width: 100%; padding: 10px; border: 1px solid #ccd3da; border-radius: 5px; margin-bottom: 8px; }
+.form-box button { width: 100%; margin-top: 12px; }
+.top { background: #153b5b; color: white; padding: 17px 5%; }
+.container { width: 92%; max-width: 1100px; margin: 35px auto; background: white; padding: 25px;
+    border-radius: 8px; box-shadow: 0 2px 12px #0000000b; }
+.search-form, .grid-form { display: grid; grid-template-columns: repeat(auto-fit,minmax(180px,1fr)); gap: 14px; align-items: end; }
+.search-form label { margin-top: 0; }
+.train-card { border: 1px solid #e1e6eb; padding: 17px; border-radius: 7px; margin: 15px 0; }
+.train-card form { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.train-card form input { max-width: 220px; margin: 0; }
+.danger { background: #c0392b; }
+table { width: 100%; border-collapse: collapse; margin-top: 18px; font-size: 14px; }
+th, td { border: 1px solid #dfe4e8; padding: 10px; text-align: left; }
+th { background: #eaf0f5; }
+.stats { display: grid; grid-template-columns: repeat(auto-fit,minmax(150px,1fr)); gap: 15px; }
+.stat { background: #edf4f7; padding: 20px; border-radius: 7px; }
+.error { color: #c0392b; }
+.success { color: #168044; }
+@media(max-width:600px) { .hero-content h1 { font-size: 34px; } .container { overflow-x: auto; } }
