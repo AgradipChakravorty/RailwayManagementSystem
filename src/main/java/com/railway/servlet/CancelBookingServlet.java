@@ -1,13 +1,23 @@
 package com.railway.servlet;
 
 import com.railway.dao.BookingDAO;
+import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
-import jakarta.servlet.ServletException;
 import java.io.IOException;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 
 @WebServlet("/cancel-booking")
 public class CancelBookingServlet extends HttpServlet {
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.sendRedirect("my-bookings");
+    }
+
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession(false);
@@ -20,10 +30,17 @@ public class CancelBookingServlet extends HttpServlet {
             int userId = (Integer) session.getAttribute("userId");
             int bookingId = Integer.parseInt(request.getParameter("bookingId"));
             boolean done = new BookingDAO().cancelBooking(bookingId, userId);
-            response.sendRedirect("my-bookings?message=" +
-                    (done ? "Booking cancelled." : "Cancellation not possible."));
+
+            if (done) {
+                String msg = URLEncoder.encode("Booking #" + bookingId + " cancelled successfully.", StandardCharsets.UTF_8);
+                response.sendRedirect("my-bookings?message=" + msg + "&type=success");
+            } else {
+                String msg = URLEncoder.encode("Cancellation not possible.", StandardCharsets.UTF_8);
+                response.sendRedirect("my-bookings?message=" + msg + "&type=error");
+            }
         } catch (Exception e) {
-            response.sendRedirect("my-bookings?message=Invalid booking ID.");
+            String msg = URLEncoder.encode("Invalid booking ID.", StandardCharsets.UTF_8);
+            response.sendRedirect("my-bookings?message=" + msg + "&type=error");
         }
     }
 }
